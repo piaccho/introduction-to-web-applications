@@ -3,7 +3,7 @@ Implementations of "Introduction to Web Applications" - Computer Science AGH UST
 
 ## TODO
 ### SET 2
-Exercise 1  - [x]
+Exercise 1  - [ x ]
 Exercise 2  - [x]
 Exercise 3  - [x]
 Exercise 4  - [x]
