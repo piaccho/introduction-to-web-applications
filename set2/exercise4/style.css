@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%;
+    background: url(bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 2000px #1270a771;
+}
+
+body {
+    height: 100%;
+    font-size: 2rem;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4494c2;
+    width: 100vw;
+    height: 50px;
+}
+
+.nav-bar>* {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    justify-content: center;
+    flex: 1;
+    font-size: 0.8em;
+}
+
+.logo>b {
+    font-weight: bolder;
+}
+
+.list {
+    justify-content: center;    
+    flex: 2;
+    height: 100%;
+}
+
+.list-bt {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 0.6em;
+    color: white;
+    background-color: transparent;
+    padding: 10px 1vw;
+    position: relative;
+}
+
+.list-bt img {
+    width: 0.8em;
+    height: 0.8em;
+    filter: invert(90%) sepia(45%) saturate(6923%) hue-rotate(174deg) brightness(142%) contrast(109%);
+    padding-left: 0.3em;
+}
+
+
+.buttons {
+    gap: 10px;
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.buttons>button {
+    box-sizing: border-box;
+    font-size: 15px;
+    border-radius: 50px;
+    border: 2px solid white;
+    padding: 10px 20px;
+    max-height: 70%;
+}
+
+.log-in {
+    color: white;
+    background-color: transparent;
+}
+
+.sign-up {
+    color: #4494c2;
+    background-color: white;
+}
+
+.hover-triangle {
+    display: none;
+    position: absolute;
+    left: 30%;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 0.5em solid transparent;
+    border-right: 0.5em solid transparent;
+    border-bottom: 0.5em solid white;
+}
+
+.hover-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    width: 15vw;
+    list-style-type: none;
+}
+
+.hover-list.level-2 {
+    top: 0;
+    left: auto;
+    right: -100%;
+}
+
+.list-bt:hover>.hover-list, li:hover>.hover-list.level-2, .list-bt:hover .hover-triangle{
+    display: block;
+}
+
+
+li {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-bottom: solid 1px #4494c2;
+    color: #4494c2;
+    background-color: rgb(255, 255, 255);
+    
+
+}
+
+li:hover {
+    color: white;
+    background-color: #4494c2;
+}
+
+li:hover>img {
+    filter: invert(90%) sepia(45%) saturate(6923%) hue-rotate(174deg) brightness(142%) contrast(109%);}
+
+.hover-list img {
+    width: 0.6em;
+    height: 0.6em;
+    padding: 0;
+    transform: rotate(-90deg);
+    filter: invert(53%) sepia(50%) saturate(510%) hue-rotate(158deg) brightness(91%) contrast(93%);
+}
+
+

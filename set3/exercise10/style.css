@@ -1,0 +1,30 @@
+body,
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#area {
+    height: 40vh;
+    width: 60vh;
+    border: 1px solid black;
+    position: relative;
+}
+
+#circle {
+    background-color: red;
+    width: 6vh;
+    height: 6vh;
+    border-radius: 100%;
+
+    transform: translate(10px, 10px);
+    transition: transform 0.5s ease-out;
+}
+
+

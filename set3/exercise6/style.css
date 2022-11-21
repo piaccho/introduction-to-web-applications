@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f7fbfe;
+    padding: 30px;
+}
+
+#container {
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#container>div ,#container>form{
+    width: 95%;
+}
+
+#card-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.card, #form {
+    padding-left: 30px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    height: 15vh;
+    width: auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: relative;
+}
+
+
+
+.del-btn {
+    cursor: pointer;
+    position: absolute;
+    z-index: 1000;
+    right: 5%;
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    background-color: #007f00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.del-btn img {
+    width: 30px;
+    height: 30px;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(3deg) brightness(102%) contrast(105%);
+
+}
+
+span:first-child {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+
+#form {
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+#form div {
+    margin: 0 10px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+#invalid {
+    position: absolute;
+    bottom: 10%;
+    visibility: hidden;
+    color: red;
+    opacity: 0.5;
+    font-size: 0.8em;
+
+}
+
+#add {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: #007f00;
+    flex: 1;
+    color: white;
+    border-radius: 5px;
+    align-self: auto;
+}
+
+label {
+    position: absolute;
+    bottom: 70%;
+    font-size: 15px;
+    color: grey;
+}
+
+input {
+    box-sizing: border-box;
+    appearance: none;
+    border: 1px solid grey;
+    border-radius: 5px;
+    height: 50px;
+    padding: 15px;
+}

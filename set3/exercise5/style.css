@@ -1,0 +1,27 @@
+div {
+    height: 20vh;
+    width: 20vh;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 1vh;
+}
+
+#first {
+    margin-top: 30px;
+}
+
+#second {
+    background-color: red;
+}
+
+#third {
+    background-color: yellow;
+}
+
+.sub {
+    width: 60%;
+    height: 60%;
+}

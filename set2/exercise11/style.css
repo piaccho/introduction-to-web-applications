@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    margin: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #edea51;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu:target .menu.sub {
+    max-height: 100em;
+}
+
+.menu:target .menu.sub::after {
+    display: block;
+}
+
+.menu:target .header {
+    background-color: #cf5b5c;
+}
+
+.menu:target .header:last-child {
+    background-color: #fc68b2;
+}
+
+.sub {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.menu-item {
+    position: relative;
+    padding: 1em 2em;
+    background-color: #1973a5;
+    width: 100%;
+}
+
+.header {
+    background-color: #fc68b2;
+}
+
+
+.menu.sub::after {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    right: 20px;
+    top: 0;
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 10px solid #cf5b5c;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+
+.menu.sub a:hover::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-right: 25px solid #edea51;
+    border-bottom: 25px solid transparent;
+}
+
+.menu.sub a:hover::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-left: 25px solid #edea51;
+    border-bottom: 25px solid transparent;
+}
+
+
+
+.menu.sub a:hover {
+    background: linear-gradient(to top,
+                #8ba4cf 0%,
+                #8ba4cf 50%,
+                #1973a5 50%,
+                #1973a5 100%);
+    transition: all 0.3s;
+}

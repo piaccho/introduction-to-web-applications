@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    height: 60vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.preview {
+    position: relative;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+    width: 40%;
+}
+
+.shoe-img {
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.shoe-img img {
+    position: absolute;
+    right: 0;
+
+    width: 120%;
+    transform: rotate(-20deg);
+    filter: hue-rotate(0);
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+    filter:         drop-shadow(1px 1px 1px #222); 
+}
+
+.share {
+    position: absolute;
+    right: 5%;
+    top: 10%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 10px;
+    background-color: white;
+    border-radius: 100%;
+    
+}
+
+.share img {
+    width: 20px;
+    height: 20px;
+    filter: invert(37%) sepia(97%) saturate(2734%) hue-rotate(205deg) brightness(94%) contrast(100%);
+
+}
+
+.bckg {
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    float: right;
+    background: linear-gradient(35deg, #0b3e89, #508be2);
+    height: 90%;
+    width: 90%;
+}
+
+.bckg p {
+    display: flex;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.386);
+    text-align: justify;
+    font-size: 5vw;
+    font-weight: bold;
+}
+
+.logo-img {
+    filter: invert(100%) sepia(93%) saturate(10%) hue-rotate(218deg) brightness(109%) contrast(100%);
+    transform: scaleX(-1);
+    width: 20%;
+    margin: 0 0 4vh 0;
+    align-self: flex-start;
+}
+
+.info {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding: 4vh;
+}
+
+.product-header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+h1 {
+    font-size: 1.7em;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.7em;
+    margin-left: 1vh;
+    padding: 0.5vh 1.2vh;
+    background-color: #2173f0;
+    color: white;
+    border-radius: 10px;
+}
+
+.product-info p{
+    color: rgb(78, 78, 78);
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 1rem;
+    color: black;
+    margin-bottom: 1vh;
+}
+
+.info>div {
+    border-bottom: 1px solid rgb(232, 232, 232);
+    padding: 1vh 0;
+}
+
+.choice {
+    display: flex;
+    flex-direction: row;
+}
+
+.color {
+    box-sizing: border-box;
+    width: 2em;
+    height: 2em;
+    text-overflow: clip;
+    display: flex;
+    justify-content: center;
+    margin: 0 1vh;
+    background-color: #ddd;
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#color-blue:target~.container .info .product-color .choice .color.blue,
+#color-red:target~.container .info .product-color .choice .color.red,
+#color-green:target~.container .info .product-color .choice .color.green,
+#color-orange:target~.container .info .product-color .choice .color.orange,
+#color-black:target~.container .info .product-color .choice .color.black {
+    border: 5px solid white;
+}
+
+
+
+.size {
+    color: black;
+    text-decoration: none;
+    width: 2em;
+    text-overflow: clip;
+    display: flex;
+    justify-content: center;
+    padding: 1vh 1.5vh;
+    margin: 0 1vh;
+    background-color: #ddd;
+    border-radius: 10px;
+}
+
+.size-option {
+    user-select: none;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked~.size {
+    color: white;
+    background-color: #2173f0;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.add-to-cart {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2173f0;
+    text-decoration: none;
+    color: white;
+    padding: 2vh;
+}
+
+.icon-cart {
+    filter: invert(100%) sepia(93%) saturate(10%) hue-rotate(218deg) brightness(109%) contrast(100%);
+    margin-right: 0.5vh;
+}
+
+.price {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    flex: 1;
+    font-size: 2em;
+    margin: 0 0.5em;
+}
+
+.currency {
+    font-size: 0.7em;
+    vertical-align: text-top;
+}
+
+
+
+#color-blue:target~.container .preview .shoe-img img,
+#color-blue:target~.container .preview .share img,
+#color-blue:target~.container .preview .bckg,
+#color-blue:target~.container .info .product-header .wrapper .box,
+#color-blue:target~.container .info .footer .add-to-cart,
+#color-blue:target~.container .info .product-size input[type="radio"]:checked~.size {
+    filter: hue-rotate(0);
+}
+
+#color-red:target~.container .preview .shoe-img img,
+#color-red:target~.container .preview .share img,
+#color-red:target~.container .preview .bckg,
+#color-red:target~.container .info .product-header .wrapper .box,
+#color-red:target~.container .info .footer .add-to-cart,
+#color-red:target~.container .info .product-size input[type="radio"]:checked~.size {
+    filter: hue-rotate(130deg);
+}
+
+#color-green:target~.container .preview .shoe-img img,
+#color-green:target~.container .preview .share img,
+#color-green:target~.container .preview .bckg,
+#color-green:target~.container .info .product-header .wrapper .box,
+#color-green:target~.container .info .footer .add-to-cart,
+#color-green:target~.container .info .product-size input[type="radio"]:checked~.size {
+    filter: hue-rotate(-100deg);
+}
+
+#color-orange:target~.container .preview .shoe-img img,
+#color-orange:target~.container .preview .share img,
+#color-orange:target~.container .preview .bckg,
+#color-orange:target~.container .info .product-header .wrapper .box,
+#color-orange:target~.container .info .footer .add-to-cart,
+#color-orange:target~.container .info .product-size input[type="radio"]:checked~.size {
+    filter: hue-rotate(165deg);
+    
+}
+
+#color-black:target~.container .preview .shoe-img img,
+#color-black:target~.container .preview .share img,
+#color-black:target~.container .preview .bckg,
+#color-black:target~.container .info .product-header .wrapper .box,
+#color-black:target~.container .info .footer .add-to-cart,
+#color-black:target~.container .info .product-size input[type="radio"]:checked~.size {
+    filter: saturate(0);
+}
+
+.blue {
+    background-color: #2173f0;
+}
+
+.red {
+    background-color: #ef4f41;
+}
+
+.green {
+    background-color: #28b765;
+}
+
+.orange {
+    background-color: #ff5522;
+}
+
+.black {
+    background-color: #444444;
+}
+
+
+@media screen and (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        width: 90vw;
+        height: auto;
+    }
+    .container>div {
+        width: 100%;
+    }
+
+    .preview {
+        height: 300px;
+        justify-content: center;
+    }
+
+    .shoe-img {
+        width: 70%;
+    }
+    
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie6</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <script id="card-to-add" type="text/html"><div class="details">
+            <span class="name">{NAME}</span>
+            <span class="phone">{PHONE}</span>
+        </div><div class="del-btn"><img src="img/trash.svg" alt="delete"></div></script>
+    <main id="container">
+        <div id="card-list">
+            <div class="card">
+                <div class="details">
+                    <span>Grzegorz Rogus</span>
+                    <span>500 600 700</span>
+                </div>
+                <div class="del-btn"><img src="img/trash.svg" alt="delete"></div>
+            </div>
+            <div class="card">
+                <div class="details">
+                    <span class="name">Jacek Dajda</span>
+                    <span class="phone">500 600 700</span>
+                </div>
+                <div class="del-btn"><img src="img/trash.svg" alt="delete"></div>
+            </div>
+        </div>
+        <form id="form">
+            <div class="wrapper">
+                <label for="name">IMIĘ I NAZWISKO</label>
+                <input id="name" type="text" name="name" value="" placeholder="np.: Jan Kowalski">
+                <p id="invalid">Wprowadzone dane są nieprawidłowe</p>
+            </div>
+            <div class="wrapper">
+                <label for="phone">TELEFON</label>
+                <input id="phone" type="text" name="phone" value="" placeholder="np.: +48 666999777">
+            </div>
+            <div id="add">Dodaj</div>
+        </form>
+    </main>
+</body>
+
+</html>
