@@ -17,15 +17,27 @@ main {
   max-height: 100vh;
   overflow-x: auto;
   overflow-y: hidden;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('assets/alesia-kaz-office-unsplash.jpg');
+  background-size: cover; 
+  background-attachment: fixed; 
 }
 
-nav {
+#mini-nav, #main-nav {
   background: rgb(35, 201, 255);
   background: linear-gradient(0deg, rgba(35, 201, 255, 1) 0%, rgba(124, 198, 254, 1) 35%, rgba(204, 213, 255, 1) 100%);
 }
 
+.nav-mobile {
+  background: rgb(35, 201, 255);
+  background: linear-gradient(0deg, rgb(35, 201, 255) 0%, rgb(35, 201, 255) 35%, rgb(35, 201, 255) 100%);
+}
+
 .nav-icon {
   color: white;
+}
+
+.avatar {
+  
 }
 
 footer p {
