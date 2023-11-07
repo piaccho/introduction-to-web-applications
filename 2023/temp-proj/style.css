@@ -29,7 +29,11 @@ main {
 
 .nav-mobile {
   background: rgb(35, 201, 255);
-  background: linear-gradient(0deg, rgb(35, 201, 255) 0%, rgb(35, 201, 255) 35%, rgb(35, 201, 255) 100%);
+  background: linear-gradient(0deg, rgba(35, 201, 255, 1) 0%, rgba(124, 198, 254, 1) 100%);
+}
+
+.navbar-brand {
+  cursor: default;
 }
 
 .nav-icon {
@@ -125,3 +129,18 @@ h2 {
   background-color: rgba(35, 201, 255, 1);
 }
 
+
+.btn-primary {
+  background-color: rgba(35, 201, 255, 1);
+  color: white;
+  border: 0;
+}
+
+.btn-primary:hover {
+  background-color: rgba(204, 213, 255, 1);
+}
+
+.media-image img {
+  border: 2px solid rgba(35, 201, 255, 1);
+  border-radius: 10px;
+}

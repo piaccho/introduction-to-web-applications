@@ -1,7 +1,12 @@
 TODO
+- responsive home page image
+- fix text wrap scroll 
 - review form
 - mobile nav hide
 - routes
+- redundant and reapeted code in script
+- highlighted current sections in navbar 
+- implement bootstrap side nav bar like this: (https://mladenplavsic.github.io/bootstrap-navbar-sidebar/)
 - CSS animations - icons beating, swipe nav menu
 - animated waves in background
 - parallax background scroll
