@@ -24,80 +24,79 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;500&display=swap" rel="stylesheet">
 
   <!-- OWN RESOURCES -->
-  <link href="sidebars.css" rel="stylesheet">
-  <script src="script.js"></script>
-
-  
+  <link href="style.css" rel="stylesheet">
 </head>
 
-<body style="min-height: 100vh;">
+<body>
   <!-- MOBILE NAV -->
   <nav class="navbar nav-mobile navbar-dark d-sm-block bg-dark">
     <div class="container-fluid d-flex flex-row justify-content-evenly">
       <div class="w-100 d-flex flex-row justify-content-evenly">
-        <div class="navbar-brand" href="#">PiachoDev</;>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNavbar" aria-controls="mobileNavbar" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="navbar-brand">PiachoDev</;>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNavbar"
+            aria-controls="mobileNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="mobileNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-sm-0 d-flex flex-col justify-content-center align-items-center">
+            <li class="nav-item">
+              <a class="nav-link section-button" data-section="home" href="">Home</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link section-button" data-section="portfolio" href="">Portfolio</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link section-button" data-section="media" href="">Media</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link section-button" data-section="review" href="">Leave review</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link section-button" data-section="contact" href="">Contact</a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="collapse navbar-collapse" id="mobileNavbar">
-        <ul class="navbar-nav me-auto mb-2 mb-sm-0 d-flex flex-col justify-content-center align-items-center">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Media</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Leave review</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
   </nav>
+
   <div class="d-flex flex-nowrap">
-    
+
 
     <!-- MAIN NAV -->
     <nav id="main-nav" class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 300px;">
-      <a href="#" class="d-flex align-items-center mb-md-0 me-md-auto text-white text-decoration-none">
+      <a href="" class="d-flex align-items-center mb-md-0 me-md-auto text-white text-decoration-none">
         <svg class="bi pe-none" width="40" height="32"></svg>
         <span class="fs-4">Hello stranger! 👋</span>
       </a>
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li>
-          <a href="#" class="nav-link text-white" aria-current="page">
+          <a href="" class="nav-link text-white section-button" data-section="home" aria-current="page">
             <svg class="bi pe-none me-2" width="16" height="16"></svg>
             Home
           </a>
         </li>
-        <li>
-          <a href="#" class="nav-link text-white">
+        <!-- <li>
+          <a href="" class="nav-link text-white section-button" data-section="portfolio">
             <svg class="bi pe-none me-2" width="16" height="16"></svg>
             Portfolio
           </a>
-        </li>
+        </li> -->
         <li>
-          <a href="#" class="nav-link text-white">
+          <a href="" class="nav-link text-white section-button" data-section="media">
             <svg class="bi pe-none me-2" width="16" height="16"></svg>
             Media
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link text-white">
+          <a href="" class="nav-link text-white section-button" data-section="review">
             <svg class="bi pe-none me-2" width="16" height="16"></svg>
             Leave review
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link text-white">
+          <a href="" class="nav-link text-white section-button" data-section="contact">
             <svg class="bi pe-none me-2" width="16" height="16"></svg>
             Contact
           </a>
@@ -109,9 +108,9 @@
           <p>&#64; Copyright 2023</p>
         </footer>
         <div class="text-center">
-          <a class="hide-nav me-2" href="#" class="nav-link py-3 rounded-0 mx-2" title="Contact" data-bs-toggle="tooltip"
-            data-bs-placement="right">
-            <i class="fa-solid fa-arrow-left fa-beat nav-icon"></i>
+          <a class="hide-nav me-2" href="" class="nav-link py-3 rounded-0 mx-2" title="Contact"
+            data-bs-toggle="tooltip" data-bs-placement="right">
+            <i class="fa-solid fa-arrow-left nav-icon"></i>
           </a>
         </div>
       </div>
@@ -119,66 +118,131 @@
 
     <!-- HIDDEN NAV -->
     <nav id="mini-nav" class="d-flex flex-column flex-shrink-0 bg-body-tertiary d-none pb-3" style="width: 4.5rem;">
-      <a href="#" class="p-3">
-        <img src="assets/dunes.png" alt="sand logo" width="40" height="40" class="rounded-circle border">
-      </a>
       <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
         <li class="nav-item">
-          <a href="#" class="nav-link py-3 border-bottom rounded-0" aria-current="page" title="Home"
+          <a href="" class="nav-link py-3 border-bottom rounded-0 section-button" data-section="home"
+            aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
+            <i class="fa-solid fa-house nav-icon"></i>
+          </a>
+        </li>
+        <!-- <li>
+          <a href="" class="nav-link py-3 border-bottom rounded-0 section-button" data-section="portfolio"
+            title="Portfolio" data-bs-toggle="tooltip" data-bs-placement="right">
+            <i class="fa-solid fa-briefcase nav-icon"></i>
+          </a>
+        </li> -->
+        <li>
+          <a href="" class="nav-link py-3 border-bottom rounded-0 section-button" data-section="media" title="Media"
             data-bs-toggle="tooltip" data-bs-placement="right">
-            <i class="fa-solid fa-house fa-beat nav-icon"></i>
+            <i class="fa-solid fa-photo-film nav-icon"></i>
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 border-bottom rounded-0" title="Portfolio" data-bs-toggle="tooltip"
-            data-bs-placement="right">
-            <i class="fa-solid fa-briefcase fa-beat nav-icon"></i>
+          <a href="" class="nav-link py-3 border-bottom rounded-0 section-button" data-section="review"
+            title="Leave review" data-bs-toggle="tooltip" data-bs-placement="right">
+            <i class="fa-solid fa-star nav-icon"></i>
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 border-bottom rounded-0" title="Media" data-bs-toggle="tooltip"
-            data-bs-placement="right">
-            <i class="fa-solid fa-photo-film fa-beat nav-icon"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link py-3 border-bottom rounded-0" title="Leave review" data-bs-toggle="tooltip"
-            data-bs-placement="right">
-            <i class="fa-solid fa-star fa-beat nav-icon"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link py-3 border-bottom rounded-0" title="Contact" data-bs-toggle="tooltip"
-            data-bs-placement="right">
-            <i class="fa-solid fa-address-book fa-beat nav-icon"></i>
+          <a href="" class="nav-link py-3 border-bottom rounded-0 section-button" data-section="contact"
+            title="Contact" data-bs-toggle="tooltip" data-bs-placement="right">
+            <i class="fa-solid fa-address-book nav-icon"></i>
           </a>
         </li>
       </ul>
       <div class="text-center">
-        <a class="hide-nav" href="#" class="nav-link py-3 border-bottom rounded-0" title="Contact" data-bs-toggle="tooltip"
-          data-bs-placement="right">
-          <i class="fa-solid fa-arrow-right fa-beat nav-icon"></i>
+        <a class="hide-nav" href="#" class="nav-link py-3 border-bottom rounded-0" title="Contact"
+          data-bs-toggle="tooltip" data-bs-placement="right">
+          <i class="fa-solid fa-arrow-right nav-icon"></i>
         </a>
       </div>
     </nav>
-    <main class="d-flex flex-row justify-content-center align-items-center">
-      <div class="d-flex flex-row align-items-center" style="width: 80%;">
-        <div class="">
-          <h1>CS Student</h1>
-          <h2>John Smith</h2>
-          <p class="mt-3 text-0g" style="color: #666;">
-            I am a dedicated and passionate Computer Science student committed to mastering the art of technology and innovation. With a profound enthusiasm for problem-solving and a relentless drive for learning, I have engaged in diverse academic and practical experiences, shaping a solid foundation in various domains within the realm of computing.
-          </p>
+    <main class="w-100 d-flex flex-row justify-content-center align-items-center">
+      <!-- BACKGROUND -->
+      <!-- <div class="wave-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path fill="#0099ff" fill-opacity="1"
+            d="M0,224L120,218.7C240,213,480,203,720,165.3C960,128,1200,64,1320,32L1440,0L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z">
+          </path>
+        </svg>
+      </div> -->
+
+      <!-- HOME SECTION -->
+      <section class="section d-block d-flex flex-row justify-content-center align-items-center" id="home-section">
+        <div class="d-flex flex-row align-items-center" style="width: 80%;">
+          <div class="">
+            <h1>CS Student</h1>
+            <h2>John Smith</h2>
+            <p class="mt-3 text-0g" style="color: #666;">
+              I am a dedicated and passionate Computer Science student committed to mastering the art of technology and
+              innovation. With a profound enthusiasm for problem-solving and a relentless drive for learning, I have
+              engaged in diverse academic and practical experiences, shaping a solid foundation in various domains
+              within the realm of computing.
+            </p>
+          </div>
+          <div class="ms-5">
+            <img src="assets/tim-bogdanov-person-mountain-unsplash.jpg" alt="web developer" width="300" height="300"
+              class="avatar rounded-circle">
+          </div>
         </div>
-        <div class="ms-5">
-          <img src="assets/tim-bogdanov-person-mountain-unsplash.jpg" alt="web developer" width="300" height="300" class="avatar rounded-circle">
+      </section>
+
+      <!-- PORTFOLIO SECTION -->
+      <!-- <section class="d-none" id="portfolio-section">
+        <h1>PORTFOLIO SECTION</h1>
+      </section> -->
+
+      <!-- MEDIA SECTION -->
+      <section class="d-none" id="media-section">
+        <h1>MEDIA SECTION</h1>
+      </section>
+
+      <!-- REVIEW SECTION -->
+      <section class="d-none" id="review-section">
+        <div class="container">
+          <h2>Leave review!</h2>
+          
         </div>
-      </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section class="d-none section d-flex flex-column justify-content-center align-items-center" id="contact-section">
+        <h2 class="mb-5">Contact</h2>
+        <div class="contact-list d-flex flex-column flex-lg-row">
+          <div class="ms-lg-5 me-5 mb-4 mb-lg-0">
+            <a href="https://linkedin.com/" class="nav-link d-flex flex-row align-items-center">
+              <i class="fa-brands fa-linkedin me-2"></i>
+              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Linkedin</h3>
+            </a>
+            <p class="mt-1">Hire me immediately!!! 🙋🏻</p>
+          </div>
+          <div class="me-5 mb-4 mb-lg-0">
+            <a href="https://github.com/" class="nav-link d-flex flex-row align-items-center">
+              <i class="fa-brands fa-github me-2"></i>
+              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Github</h3>
+            </a>
+            <p class="mt-1">Check my repos! ⌨️</p>
+          </div>
+          <div class="me-5 mb-4 mb-lg-0">
+            <a href="https://www.instagram.com/" class="nav-link d-flex flex-row align-items-center">
+              <i class="fa-brands fa-instagram me-2"></i>
+              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Instagram</h3>
+            </a>
+            <p class="mt-1">Cool pics of myself! 📷</p>
+          </div>
+          <div class="me-5 mb-4 mb-lg-0">
+            <a href="https://www.facebook.com/" class="nav-link d-flex flex-row align-items-center" href="">
+              <i class="fa-brands fa-facebook me-2"></i>
+              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Facebook</h3>
+            </a>
+            <p class="mt-1">My facebook profile! </p>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
-  
 
-<script src="sidebars.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
