@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 1 i 2</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Zadanie 1 i 2</h1>
+        <div class="filter-btn d-flex">
+            <button id="filter-btn">Filter by</button>
+            <p>Price</p>
+            <div>Price range</div>
+            <p>Stock</p>
+            <div>Stock range</div>
+            <p>Title</p>
+            <div>Searched phrase</div>
+            <p>Category</p>
+            <select name="filter-type" id="filter-type">
+                <option value="asc" selected>Ascending</option>
+                <option value="dsc">Descending</option>
+                <option value="reset">Reset</option>
+            </select>
+        </div>
+        <div class="sort-btn d-flex">
+            <button id="sort-btn">Sort by name</button>
+            <select name="sort-type" id="sort-type">
+                <option value="asc" selected>Ascending</option>
+                <option value="dsc">Descending</option>
+                <option value="reset">Reset</option>
+            </select>
+        </div>
+    <div id="content">
+        <ol id="product-list" type="1"></ol>
+    </div>
+
+</body>
+</html>
