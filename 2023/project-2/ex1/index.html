@@ -5,34 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zadanie 1 i 2</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Zadanie 1 i 2</h1>
-        <div class="filter-btn d-flex">
-            <button id="filter-btn">Filter by</button>
-            <p>Price</p>
-            <div>Price range</div>
-            <p>Stock</p>
-            <div>Stock range</div>
-            <p>Title</p>
-            <div>Searched phrase</div>
-            <p>Category</p>
-            <select name="filter-type" id="filter-type">
-                <option value="asc" selected>Ascending</option>
-                <option value="dsc">Descending</option>
-                <option value="reset">Reset</option>
-            </select>
+        <div class="wrapper" style="display: flex; border: 1px solid black; padding: 0px 15px 15px 15px">
+            <div class="filter" style="margin-right: 50px">
+                <h2>Filters</h2>
+                <div>
+                    <h3>Price:</h3>
+                    <div class="range_container">
+                        <div class="sliders_control">
+                            <input class="fromSlider" id="priceFromSlider" type="range" value="10" min="0" max="100" />
+                            <input class="toSlider" id="priceToSlider" type="range" value="40" min="0" max="100" />
+                        </div>
+                        <div class="form_control">
+                            <div class="form_control_container">
+                                <div class="form_control_container__time">Min</div>
+                                <input class="form_control_container__time__input fromInput" type="number" id="priceFromInput" value="10" min="0"
+                                    max="100" />
+                            </div>
+                            <div class="form_control_container">
+                                <div class="form_control_container__time">Max</div>
+                                <input class="form_control_container__time__input toInput" type="number" id="priceToInput" value="40" min="0"
+                                    max="100" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Stock:</h3>
+                    <div class="range_container">
+                        <div class="sliders_control">
+                            <input class="fromSlider" id="stockFromSlider" type="range" value="10" min="0" max="100" />
+                            <input class="toSlider" id="stockToSlider" type="range" value="40" min="0" max="100" />
+                        </div>
+                        <div class="form_control">
+                            <div class="form_control_container">
+                                <div class="form_control_container__time">Min</div>
+                                <input class="form_control_container__time__input fromInput" type="number" id="stockFromInput" value="10" min="0"
+                                    max="100" />
+                            </div>
+                            <div class="form_control_container">
+                                <div class="form_control_container__time">Max</div>
+                                <input class="form_control_container__time__input toInput" type="number" id="stockToInput" value="40" min="0"
+                                    max="100" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <br>
+            
+                <div style="display: flex; flex-direction: row;">
+                    <h3 style="margin-right: 10px">Categories:</h3>
+                    <div id="categoryCheckboxes">
+                    </div>
+                </div>
+                <br>
+            
+                <h3>Search:</h3>
+                <input type="text" id="searchInput">
+            
+                <br>
+                <br>
+
+                <button id="filter-btn">Apply Filters</button>
+            </div>
+            <div class="sort">
+                <h2>Sort by</h2>
+                <select name="sort-by" id="sort-by">
+                    <option value="title" selected>Name</option>
+                    <option value="price">Price</option>
+                    <option value="stock">Stock</option>
+                </select>
+                <select name="sort-type" id="sort-type">
+                    <option value="asc" selected>Ascending</option>
+                    <option value="dsc">Descending</option>
+                    <option value="reset">Reset</option>
+                </select>
+                <br>
+                <br>
+                <button id="sort-btn">Sort</button>
+            </div>
         </div>
-        <div class="sort-btn d-flex">
-            <button id="sort-btn">Sort by name</button>
-            <select name="sort-type" id="sort-type">
-                <option value="asc" selected>Ascending</option>
-                <option value="dsc">Descending</option>
-                <option value="reset">Reset</option>
-            </select>
-        </div>
-    <div id="content">
-        <ol id="product-list" type="1"></ol>
+    <div id="content" style="border: 1px solid black; padding: 0px 15px 15px 15px">
+        <h2 id="product-count">Products number: 0</h2>
+        <ol id="product-list" type="1">
+
+        </ol>
     </div>
 
 </body>
