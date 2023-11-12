@@ -1,12 +1,15 @@
 // TODO
 // 1. change health bar to lives
 // 2. change points to score
+// 3. add zombie move speed
+// 4. add zombie spawn interval
 
 const cursor = document.querySelector('#cursor');
 const ammoAmount = document.querySelector('#ammo-amount');
 const healthBar = document.querySelector('#health-bar');
 const pointsCounter = document.querySelector('#points-counter');
 const mainMenu = document.querySelector('#main-menu');
+const gameOverScreen = document.querySelector('#game-over');
 const startButton = document.querySelector('#start-btn');
 const gameContainer = document.querySelector('#game-container');
 
@@ -19,6 +22,8 @@ const RELOAD_DELAY = 500;
 const MAX_AMMO_AMOUNT = 7;
 const MAX_HEALTH = 3;
 const START_POINTS = 30;
+// const ZOMBIE_MOVE_SPEED = 5;
+// const ZOMBIE_SPAWN_INTERVAL = 1000;
 
 let shotingAvailable = false;
 let gameRunning = false;
@@ -29,7 +34,7 @@ const stats = {
 }
 
 const moveCursor = (e) => {
-    body.style.cursor = 'none';
+    document.querySelector("body").style.cursor = 'none';
     cursor.style.transform = `translate3d(${e.clientX - CURSOR_IMG_SIZE / 2}px, ${e.clientY - CURSOR_IMG_SIZE / 2}px, 0)`;
 }
 
@@ -87,13 +92,12 @@ const loadInterface = () => {
 
 
 const spawnZombie = () => {
-    if (gameRunning && stats.score >= 0) {
+    if (gameRunning && stats.points >= 0) {
         const zombie = document.createElement('div');
         const randomZombieSize = Math.floor(Math.random() * 0.6) + 0.7;
         zombie.className = 'zombie';
-        console.log(zombie.style.width, zombie.style.height);
         // zombie.style.height = `${Math.floor(Math.random() * 50) + 30}px`;
-        zombie.style.top = `${Math.floor(Math.random() * (gameContainer.clientHeight - 50))}px`;
+        zombie.style.bottom = `${Math.floor(Math.random() * (gameContainer.clientHeight - 50))}px`;
         zombie.style.left = `${gameContainer.clientWidth}px`;
         gameContainer.appendChild(zombie);
     }
@@ -110,12 +114,12 @@ const moveZombies = () => {
             // Check for collision with left edge of the game container
             if (currentLeft - zombieSpeed < 0) {
                 zombie.remove();
-                lives--;
+                stats.health--;
             }
         });
 
         // Check if the game should end
-        if (score < 0 || lives === 0) {
+        if (stats.points < 0 || stats.health === 0) {
             endGame();
         }
     }
@@ -128,6 +132,8 @@ const clearZombies = () => {
 
 const endGame = () => {
     gameRunning = false;
+    gameContainer.style.display = 'none';
+    gameOverScreen.style.display = 'flex';
     clearZombies();
     window.removeEventListener('mousemove', moveCursor);
     window.removeEventListener('click', shot);
@@ -138,6 +144,7 @@ const endGame = () => {
 startButton.addEventListener('click', () => {
     if(!gameRunning) {
         gameRunning = true;
+        gameContainer.style.display = 'block';
         mainMenu.style.display = 'none';
 
         loadInterface();

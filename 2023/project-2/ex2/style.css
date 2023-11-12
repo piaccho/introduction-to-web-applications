@@ -12,10 +12,18 @@ body {
     overflow: hidden;
 }
 
-#main-menu {
+.pre-game-screen {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+#game-over {
+    display: none;
+}
+
+#game-container {
+    display: none;
 }
 
 #title {
@@ -27,7 +35,7 @@ body {
     z-index: 101;
 }
 
-#start-btn {
+.game-btn {
     font-weight: bold;
     font-size: 5vw;
     color: white;
@@ -77,6 +85,7 @@ body {
 }
 
 #points-counter {
+    display: none;
     font-weight: bold;
     font-size: 5vw;
     color: white;
@@ -114,8 +123,8 @@ body {
 
 .zombie {
     position: absolute;
-    width: 2vw;
-    height: 3.12vw;
+    width: 20vw;
+    height: 31.2vw;
     background: url(assets/images/walkingdead.png);
     background-size: cover;
     z-index: 10;
