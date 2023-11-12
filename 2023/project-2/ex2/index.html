@@ -11,8 +11,8 @@
 
 <body>
     <div id="main-menu" class="pre-game-screen">
-        <div id="title">ZOMBIE HUNTING</div>
-        <div id="start-btn" class="game-btn">START</div>
+        <div class="title">ZOMBIE HUNTING</div>
+        <div class="game-btn">START</div>
     </div>
     <div id="game-container">
         <div id="cursor"></div>
@@ -20,14 +20,16 @@
             <span id="ammo-amount">0</span>
             <div class="ammo"></div>
         </div>
-        <div id="health-bar">
+        <div id="lives-bar">
         </div>
-        <div id="points-counter">
+        <div id="score">
             00000
         </div>
     </div>
     <div id="game-over" class="pre-game-screen">
-        <div id="title">YOU LOST</div>
+        <div class="title">YOU LOST!</div>
+        <div id="total-score-title">Total score:</div>
+        <div id="total-score-value"></div>
         <div class="game-btn">PLAY AGAIN</div>
     </div>
 </body>
