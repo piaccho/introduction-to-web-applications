@@ -1,12 +1,9 @@
 // TODO
-// 2. change score to score
-// 3. add zombie move speed
-// 4. add zombie spawn interval
-// 5. add zombie hit animation
-// 6. add zombie death animation
-// 8. fix click button shot
-// 9. fix blinking lives bar animation
-// 10. add score of shooting and killing zombies
+//  FIX RANDOM VALUES OF zombie move speed and size
+//  add zombie death animation
+//  config
+//  instructions in main menu
+
 
 const cursor = document.querySelector('#cursor');
 const totalScoreEndGame = document.querySelector('#total-score-value');
@@ -17,7 +14,10 @@ const mainMenu = document.querySelector('#main-menu');
 const gameOverScreen = document.querySelector('#game-over');
 const gameButtons = document.querySelectorAll('.game-btn');
 const gameContainer = document.querySelector('#game-container');
+const plane = document.querySelector('#plane');
 
+
+// CONFIG
 const CURSOR_IMG_SIZE = window.innerWidth * 0.2;
 const BULLET_HOLE_IMG_SIZE = window.innerWidth*0.05;
 const BULLET_HOLE_DURATION = 6000;
@@ -32,15 +32,26 @@ const START_SCORE = 30;
 
 let shotingAvailable = false;
 let gameRunning = false;
+let spawnZombieInterval;
+let moveZombieInterval;
+
 const stats = {
     ammo: MAX_AMMO_AMOUNT, 
     lives: MAX_LIVES,
     score: START_SCORE,
-    printScore: () => {
-        return String(START_SCORE).padStart(5, '0');
-    }
 }
 
+const randomScaler = (value) => {
+    // console.log(`[Random scaler] value: ${value}`);
+    return Math.floor(Math.random() * value);
+} 
+
+const updateScoreCounter = (value) => {
+    stats.score += value;
+    score.innerHTML = String(Math.max(0, stats.score)).padStart(5, '0');
+    totalScoreEndGame.innerHTML = String(Math.max(0, stats.score)).padStart(5, '0');
+
+}
 
 const moveCursor = (e) => {
     document.querySelector("body").classList.add('aim-mode');
@@ -51,9 +62,11 @@ const moveCursor = (e) => {
 const reload = () => {
     shotingAvailable = false;
     const reloadInterval = setInterval(() => {
-        stats.ammo++;
-        ammoAmount.innerHTML = stats.ammo;
-        new Audio('assets/sounds/reload.mp3').play();
+        if(gameRunning) {
+            stats.ammo++;
+            ammoAmount.innerHTML = stats.ammo;
+            new Audio('assets/sounds/reload.mp3').play();
+        }
     }, RELOAD_DELAY);
     setTimeout(() => {
         clearInterval(reloadInterval);
@@ -61,17 +74,7 @@ const reload = () => {
     }, RELOAD_DELAY * (MAX_AMMO_AMOUNT + 1));
 }
 
-const shot = (e) => {
-    if(!shotingAvailable) return;
-
-    new Audio('assets/sounds/shot.mp3').play();
-    stats.ammo--;
-    ammoAmount.innerHTML = stats.ammo;
-    if(stats.ammo <= 0) {
-        reload();
-    }
-    
-
+const createBulletHole = (e) => {
     const bulletHole = document.createElement('div');
     bulletHole.classList.add('bullet-hole');
     bulletHole.style.transform = `translate3d(${e.clientX - BULLET_HOLE_IMG_SIZE / 2}px, ${e.clientY - BULLET_HOLE_IMG_SIZE / 2}px, 0)`;
@@ -88,29 +91,86 @@ const shot = (e) => {
         clearInterval(bulletHoleFadeInterval);
         bulletHole.remove();
     }, BULLET_HOLE_DURATION);
+};
+
+const isColliding = (x, y, target) => {
+    const rect = target.getBoundingClientRect();
+    return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
 }
 
+const shot = (e) => {
+    if(shotingAvailable && stats.score >= 0) {
+        // shotingAvailable = false;
+        new Audio('assets/sounds/shot.mp3').play();
+        stats.ammo--;
+        ammoAmount.innerHTML = stats.ammo;
+        if(stats.ammo <= 0) {
+            reload();
+        } 
+        // else {
+        //     setTimeout(() => {
+        //         shotingAvailable = true;
+        //     }, 500);
+        // }
+        
+        let targetHit = false;
+        document.querySelectorAll('.zombie').forEach(zombie => {
+            if (isColliding(e.clientX, e.clientY, zombie) && !targetHit) {
+                targetHit = true;
+                updateScoreCounter(10);
+                zombie.remove();
+            } 
+        });
+
+        if(!targetHit) {
+            updateScoreCounter(-3);
+            createBulletHole(e);
+        };
+
+        
+    }
+
+};
+
+const loadConfig = () => {
+    stats.lives = MAX_LIVES;
+    stats.score = START_SCORE;
+    stats.ammo = MAX_AMMO_AMOUNT;
+};
+
 const loadInterface = () => {
-    for (let i = 0; i < MAX_LIVES; i++) {
+    ammoAmount.innerHTML = stats.ammo;
+    score.innerHTML = String(stats.score).padStart(5, '0');
+    // reset livesbar
+    livesBar.innerHTML = '';
+    for (let i = 0; i < stats.lives; i++) {
         const liveHeart = document.createElement('div');
         liveHeart.classList.add('full-heart');
         livesBar.appendChild(liveHeart);
     }
-    ammoAmount.innerHTML = stats.ammo;
-    score.innerHTML = stats.printScore();
 };
 
-
 const spawnZombie = () => {
-    if (gameRunning && stats.score >= 0) {
+    if (gameRunning) {
         const zombie = document.createElement('div');
-        const randomZombieSize = Math.floor(Math.random() * 0.6) + 0.7;
+        // FIX THIS
+        const randomZombieSizeRatio = randomScaler(0.6) + 0.7;
+        // console.log(randomZombieSizeRatio);  
         zombie.className = 'zombie';
-        // zombie.style.height = `${Math.floor(Math.random() * 50) + 30}px`;
-        // zombie.style.bottom = `${Math.floor(Math.random() * (gameContainer.clientHeight - 50))}px`;
-        zombie.style.bottom = `${gameContainer.clientHeight}px`;
+        // zombie.style.height = `${(31.2 * randomZombieSizeRatio)}vw`;
+        // zombie.style.width = `${(20 * randomZombieSizeRatio)}vw`;
+        zombie.style.bottom = `${Math.floor((gameContainer.clientHeight + randomScaler(150)))}px`;
+        // zombie.style.bottom = `${gameContainer.clientHeight}px`;
         zombie.style.left = `${gameContainer.clientWidth}px`;
-        gameContainer.appendChild(zombie);
+        plane.appendChild(zombie);
+
+        // zombie.addEventListener('click', () => {
+        //     if (gameRunning && shotingAvailable) {
+        //         console.log(stats.score);
+        //         stats.score += 10;
+        //         zombie.remove();
+        //     }
+        //   });
     }
 }
 
@@ -118,8 +178,10 @@ const moveZombies = () => {
     if (gameRunning) {
         const zombies = document.querySelectorAll('.zombie');
         zombies.forEach(zombie => {
-            const zombieSpeed = Math.floor(Math.random() * 50) + 1;
+            // const randomZombieSpeed = randomScaler(0.3);
+            const zombieSpeed = Math.floor(1);
             const currentLeft = parseFloat(zombie.style.left);
+            // console.log(`Move zombie with speed: ${currentLeft - randomZombieSpeed}`);
             zombie.style.left = `${currentLeft - zombieSpeed}px`;
 
             // Check for collision with left edge of the game container
@@ -134,7 +196,7 @@ const moveZombies = () => {
 const decreaseLives = () => { 
     stats.lives--;
     const liveHearts = document.querySelectorAll('.full-heart');
-
+    
     if (liveHearts.length > 0) {
         lastHeart = liveHearts[liveHearts.length - 1];
         lastHeart.classList.remove('full-heart');
@@ -150,10 +212,20 @@ const clearZombies = () => {
     zombies.forEach(zombie => zombie.remove());
 }
 
+const clearBulletHolles = () => {
+    const bulletHoles = document.querySelectorAll('.bullet-hole');
+    bulletHoles.forEach(bulletHole => bulletHole.remove());
+}
+
 const gameOverLivesAnimation = () => {
-    livesBar.style.animation = 'blink 3s linear infinite';
+    const animationInterval = setInterval(() => {
+        livesBar.style.opacity = 0;
+        setTimeout(() => {
+            livesBar.style.opacity = 1;
+        }, 250);
+     }, 500);
     setTimeout(() => {
-        livesBar.style.animation = 'none';
+        clearInterval(animationInterval);
     }, 3000);
 }
 
@@ -162,30 +234,40 @@ const endGame = () => {
     window.removeEventListener('click', shot);
     gameOverLivesAnimation();
     setTimeout(() => {
-        totalScoreEndGame.innerHTML = stats.printScore();
+        clearInterval(spawnZombieInterval);
+        clearInterval(moveZombieInterval);
+        clearZombies();
+        clearBulletHolles();
         window.removeEventListener('mousemove', moveCursor);
-        document.querySelector("body").classList.remove('aim-mode');
         cursor.style.display = 'block';
+        document.querySelector("body").classList.remove('aim-mode');
+        
         gameContainer.style.display = 'none';
         gameOverScreen.style.display = 'flex';
-        clearZombies();
     }, 3000);
 }
 
+
 const initGame = (e) => {
     e.stopPropagation();
+    
     if (!gameRunning) {
         gameRunning = true;
-        gameContainer.style.display = 'block';
-        mainMenu.style.display = 'none';
 
+        mainMenu.style.display = 'none';
+        gameOverScreen.style.display = 'none'; 
+        gameContainer.style.display = 'block';
+        
+        loadConfig();
         loadInterface();
+
         window.addEventListener('mousemove', moveCursor)
         window.addEventListener('click', shot);
         shotingAvailable = true;
 
-        setInterval(spawnZombie, 1000);
-        setInterval(moveZombies, 100);
+        
+        spawnZombieInterval = setInterval(spawnZombie, 1000);
+        moveZombieInterval = setInterval(moveZombies, 10);
     };
 }
 
