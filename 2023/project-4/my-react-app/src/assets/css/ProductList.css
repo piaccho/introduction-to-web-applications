@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    font-size: calc(10px + 1vmin);
+}
+
+.product-list {
+    margin-top: 5vmin;
+}
+
+.product-item {
+    width: min-content;
+    text-decoration: none;
+    list-style: none;
+    margin-bottom: 3vmin;
+    background-color: #303338;
+}

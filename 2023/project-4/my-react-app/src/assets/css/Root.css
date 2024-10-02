@@ -1,0 +1,112 @@
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav {
+  width: 100vw;
+  background-color: #383d48;
+  
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5vw;
+  list-style-type: none;
+  margin: 20px 0;
+  padding: 0; 
+}
+
+nav ul a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul a:hover {
+  text-decoration: underline;
+}
+
+
+.Main {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Main-header {
+  margin-top: 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Product-detail {
+  margin-top: 2vw;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.Product-edit-form {
+  margin-top: 2vw;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  gap: 1vw;
+}
+
+.Product-edit-form label {
+  display: flex;
+  justify-content: space-between;
+  gap: 1vw;
+  flex-direction: row;
+}
+
+.Product-edit-form input {
+  width: 30vw;
+}
+
+.Product-edit-description{
+  width: 30vw;
+  height: 10vw;
+}
+
+.Main-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.Main-logo-s {
+  height: 20vmin;
+  pointer-events: none;
+}
+
+.Main-link {
+  color: #61dafb;
+}
+
+.Main-form {
+  margin-top: 4vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+}
+
+.User-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.User-status img {
+  height: 10vmin;
+}
